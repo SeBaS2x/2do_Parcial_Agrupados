@@ -1,0 +1,20 @@
+nivel, categoria, valor
+
+nivel_1, deportes, fútbol
+nivel_1, deportes, tenis
+nivel_1, deportes, basket
+nivel_1, deportes, natacion
+nivel_1, peliculas, accion 
+nivel_1, peliculas, rpg
+nivel_1, peliculas, estrategia
+nivel_1, peliculas, aventura
+nivel_1, paises, argentina
+nivel_1, paises, brasil
+nivel_1, paises, paraguay
+nivel_1, paises, uruguay
+nivel_1, intrumentos, guitarra
+nivel_1, intrumentos, piano
+nivel_1, intrumentos, violin 
+nivel_1, intrumentos, trompeta
+
+nivel_2, progrmacion, tupla

@@ -1,47 +1,63 @@
-from nivles import *
 
+from funciones import *
+from controlador import *
 vidas = 3 
 nivel = 1
 puntos = 0
 aciertos = 0
-matriz_tablero = crear_matriz(None, 4, 4)
-matriz_nivel_1 = cargar_diccionario_matriz(nivel_1)
+
+
+
+print("---Bienvenidos a Agrupados ---")
 while vidas != 0 and nivel < 6:
-    # nivel = cargar_diccionario_matriz(nivel_1)
-    # mostrar_matriz(nivel)
-    print("---Bienvenidos a Agrupados ---")
+    
     match nivel:
         case 1:
-            
+            print("Nivel 1")
+            matriz_nivel_1 = cargar_diccionario_matriz(nivel_1)
             mostrar_matriz(matriz_nivel_1)
-            opciones_a_elegir = []
+            while aciertos < 4:
+                eleccion = ingreso_usuario(matriz_nivel_1)
+                vidas, puntos, matriz_nivel_1, aciertos =calcular_puntuacion(eleccion,matriz_nivel_1,nivel_1,aciertos,puntos,vidas)  
+                mostrar_puntos_vidas(vidas,puntos)
+            nivel +=1
             
-            while len(opciones_a_elegir) !=4 :
-                fila = solicitar_entero("ingrese el numero de fila: ")
-                columna = solicitar_entero("Ingrese el numero de columna: ")
-                valor = mostrar_espesifica_matriz(matriz_nivel_1, fila -1, columna -1)
-                cargar_vector(valor, opciones_a_elegir)
-                
-            if verificar_aciertos(opciones_a_elegir, nivel_1)!= True: #esta parte se puese hacer funsion, pasar tambien como parametros las vidas y los puntos 
-                    vidas -= 1
-                    print(f"Pierdes una vida")
-            else:
-                    puntos +=5
-                    aciertos += 1
-                    print("Sumas 5 puntos")
-                    
-            print(f"Tus puntos son: {puntos}")
-            print(f"Tus vidas son: {vidas}")
-            if aciertos == 4:
-                nivel +=1        
         case 2:
-            print("pasaste de nivel ")
+            print("NIVEL 2 ")
+            matriz_nivel_2 = cargar_diccionario_matriz(nivel_1)
+            mostrar_matriz(matriz_nivel_2)
+            while aciertos < 4:
+                eleccion = ingreso_usuario(matriz_nivel_2)
+                vidas, puntos, matriz_nivel_2, aciertos =calcular_puntuacion(eleccion,matriz_nivel_2,nivel_1,aciertos,puntos,vidas)  
+                mostrar_puntos_vidas(vidas,puntos)
+            nivel +=1
         case 3:
-            pass
+            print("NIVEL 3 ")
+            matriz_nivel_3 = cargar_diccionario_matriz(nivel_1)
+            mostrar_matriz(matriz_nivel_3)
+            while aciertos < 4:
+                eleccion = ingreso_usuario(matriz_nivel_3)
+                vidas, puntos, matriz_nivel_3, aciertos =calcular_puntuacion(eleccion,matriz_nivel_3,nivel_1,aciertos,puntos,vidas)  
+                mostrar_puntos_vidas(vidas,puntos)
+            nivel +=1
         case 4:
-            pass
+            print("NIVEL 4 ")
+            matriz_nivel_4 = cargar_diccionario_matriz(nivel_1)
+            mostrar_matriz(matriz_nivel_4)
+            while aciertos < 4:
+                eleccion = ingreso_usuario(matriz_nivel_4)
+                vidas, puntos, matriz_nivel_4, aciertos =calcular_puntuacion(eleccion,matriz_nivel_4,nivel_1,aciertos,puntos,vidas)  
+                mostrar_puntos_vidas(vidas,puntos)
+            nivel +=1
         case 5:
-            pass
+            print("NIVEL 5 ")
+            matriz_nivel_5 = cargar_diccionario_matriz(nivel_1)
+            mostrar_matriz(matriz_nivel_5)
+            while aciertos < 4:
+                eleccion = ingreso_usuario(matriz_nivel_5)
+                vidas, puntos, matriz_nivel_5, aciertos =calcular_puntuacion(eleccion,matriz_nivel_5,nivel_1,aciertos,puntos,vidas)  
+                mostrar_puntos_vidas(vidas,puntos)
+            nivel +=1
         case _:
             pass 
 print("Fin del juego..")

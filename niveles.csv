@@ -1,20 +1,92 @@
-nivel, categoria, valor
+categoria,valor
 
-nivel_1, deportes, fútbol
-nivel_1, deportes, tenis
-nivel_1, deportes, basket
-nivel_1, deportes, natacion
-nivel_1, peliculas, accion 
-nivel_1, peliculas, rpg
-nivel_1, peliculas, estrategia
-nivel_1, peliculas, aventura
-nivel_1, paises, argentina
-nivel_1, paises, brasil
-nivel_1, paises, paraguay
-nivel_1, paises, uruguay
-nivel_1, intrumentos, guitarra
-nivel_1, intrumentos, piano
-nivel_1, intrumentos, violin 
-nivel_1, intrumentos, trompeta
-
-nivel_2, progrmacion, tupla
+deporte,futbol
+deporte,tenis
+deporte,natacion
+deporte,basket
+deporte,rugby
+deporte,voley
+deporte,boxeo
+deporte,handball
+deporte,beisbol
+deporte,golf
+peliculas,accion
+peliculas,comedia
+peliculas,drama
+peliculas,terror
+peliculas,romance
+peliculas,ciencia ficcion
+peliculas,animacion
+peliculas,aventura
+peliculas,documental
+peliculas,musical
+videojuegos,aventura
+videojuegos,rpg
+videojuegos,estrategia
+videojuegos,shooter
+videojuegos,plataformas
+videojuegos,deportes
+videojuegos,carreras
+videojuegos,sandbox
+videojuegos,puzzle
+videojuegos,lucha
+instrumentos,guitarra
+instrumentos,piano
+instrumentos,bateria
+instrumentos,violin
+instrumentos,bajo
+instrumentos,trompeta
+instrumentos,saxofon
+instrumentos,ukelele
+instrumentos,armonica
+instrumentos,teclado
+programacion,python
+programacion,javascript
+programacion,c
+programacion,java
+programacion,c++
+programacion,go
+programacion,rust
+programacion,php
+programacion,swift
+programacion,kotlin
+musica,rock
+musica,metal
+musica,punk
+musica,grunge
+musica,indie
+musica,alternativo
+musica,hard rock
+musica,progressive rock
+musica,heavy metal
+musica,folk rock
+colores,rojo
+colores,azul
+colores,verde
+colores,amarillo
+colores,negro
+colores,blanco
+colores,gris
+colores,naranja
+colores,violeta
+colores,rosa
+animales,perro
+animales,gato
+animales,elefante
+animales,caballo
+animales,tigre
+animales,leon
+animales,delfin
+animales,oso
+animales,lobo
+animales,tortuga
+insectos,hormiga
+insectos,abeja
+insectos,avispa
+insectos,mosquito
+insectos,mosca
+insectos,grillo
+insectos,saltamontes
+insectos,escarabajo
+insectos,mariposa
+insectos,libelula

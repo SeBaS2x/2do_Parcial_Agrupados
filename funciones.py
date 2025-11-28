@@ -1,10 +1,6 @@
 import random
-nivel_1 = {
-    "deportes": ["futbol", "tenis", "basket", "natacion"],
-    "videojuegos": ["accion", "rpg", "estrategia", "aventura"],
-    "paises": ["argentina", "brasil", "paraguay", "uruguay" ],
-    "intrumentos": ["guitarra", "piano", "violin", "trompeta"]
-}
+from archivos import *
+
 def verificar_type(objeto, tipo)->bool:
     """Verificacion de type de un objeto
 
@@ -37,23 +33,48 @@ def crear_matriz(valor,filas:int, columnas:int)->list:
         for j in range(columnas):
             matriz[i][j] = valor
     return matriz
-    
-def cargar_diccionario_matriz(diccionario: dict)->list:
+
+def cargar_diccionario_matriz(diccionario: dict):
+    """Carga de manera aletoria las claves y valores de un diccionario en una matriz 
+
+    Args:
+        diccionario (dict): diccionario el cual cargar a la matriz
+
+    Returns:
+        _type_: matriz cargada
+    """
+    #categorías aleatorias sin repetir
+    categorias = list(diccionario.keys())
+    categorias_seleccionadas = random.sample(categorias, 4)
+
+    # valores aleatorios de cada categoría 
     lista_total = []
-    for categoria in diccionario:
-        lista = diccionario[categoria]
-        for valor in lista:
-            lista_total += [valor]
+    for categoria in categorias_seleccionadas:
+        valores = diccionario[categoria]
+        valores_elegidos = random.sample(valores, 4)   
+        
+        
+        lista_total = lista_total + valores_elegidos
+
+    
     random.shuffle(lista_total)
-    matriz = crear_matriz(None, len(diccionario[categoria]),len(lista))
-    idx = 0
-    for i in range(len(matriz)):
-        for j in range(len(matriz[i])):
-            matriz[i][j] = lista_total[idx]
-            idx += 1
+
+    
+    matriz = []
+    indice = 0
+    for f in range(4):
+        fila = lista_total[indice:indice+4]
+        matriz += [fila]
+        indice += 4
+
     return matriz
 
 def mostrar_matriz(matriz:list):
+    """Muestra una matriz, con la cantidad de filas y la cantidad de columnas como iundice 
+
+    Args:
+        matriz (list): matriz a mostrar
+    """
     if verificar_type(matriz, list):
         filas = len(matriz)
         columnas = len(matriz[0])
@@ -79,6 +100,15 @@ def mostrar_matriz(matriz:list):
 
 
 def cargar_vector(valor:str, vector:list):
+    """Carga valores dentro de un vector.
+
+    Args:
+        valor (str): valor a cargar
+        vector (list): vector al cual se va cargar el valor
+
+    Returns:
+        _type_: _description_
+    """
     if verificar_type(valor, str) and verificar_type(vector, list):
         vector += [valor]
         return vector
@@ -86,6 +116,13 @@ def cargar_vector(valor:str, vector:list):
         print("Error de tipo de dato")
         
 def cambiar_matriz_espacios_vacios(vector:list, matriz:list)->list:
+    """actualiza matriz con espacios vacios que coinsidan con el vector
+    Args:
+        vector (list): vector de opciones a poner en blanco 
+        matriz (list): matriz que se va a editar
+
+    Returns matriz editada con espacios vacios
+    """
     filas = len(matriz)
     columnas = len(matriz[0])
     matriz_vacia = crear_matriz(None, filas, columnas)
@@ -114,6 +151,13 @@ def solicitar_string(mensaje:str)->str:
     return string
 
 def parsear_a_minusculas(string: str)->str:
+    """Parsear a minuscula todas las letras de un string
+
+    Args:
+        string (str): string a parsear
+
+    Returns:
+        str: _description_string parseado """
     if verificar_type(string, str):
         nuevo_string = ""
         for i in range(len(string)):
@@ -123,11 +167,17 @@ def parsear_a_minusculas(string: str)->str:
             else:
                 nuevo_string +=chr(id)
         return nuevo_string
-    else:
-        print("Error de tipo de dato")
-        
+
 def verificar_existencia_en_matriz(opcion:str, matriz:list)->bool:
-    
+    """verifica si una opcion esta dentro de la matriz y retorna un valor booleano
+
+    Args:
+        opcion (str): string a buscar en la matriz
+        matriz (list): matitriz en cual buscar
+
+    Returns:
+        bool: True o False
+    """
     if verificar_type(matriz, list) and verificar_type (opcion, str):
         encontro = False 
         for i in range(len(matriz)):
@@ -137,19 +187,23 @@ def verificar_existencia_en_matriz(opcion:str, matriz:list)->bool:
                     break
         return encontro
 def mostrar_vector(vector:list):
-    
-    
-        print(f"selecciono :{vector},\n")
-
-def verificar_aciertos(opciones:list, diccionario:dict)->bool: 
-    """_summary_
+    """muestra vector, con valores que se van agregando 
 
     Args:
-        opciones (list): _description_
-        diccionario (dict): _description_
+        vector (list): vector que mostrar
+    """
+    
+    print(f"selecciono :{vector},\n")
+
+def verificar_aciertos(opciones:list, diccionario:dict)->bool: 
+    """verifica si una lista de opciones pertenece a los valores de un diccionario 
+
+    Args:
+        opciones (list): lista de opciones
+        diccionario (dict): _deccionario en cual buscar
 
     Returns:
-        bool: _description_
+        bool: True o False
     """
     resultado = False
     if  verificar_type(opciones, list) and verificar_type(diccionario, dict) and len(opciones) == 4: 
@@ -172,6 +226,41 @@ def verificar_aciertos(opciones:list, diccionario:dict)->bool:
         print("Error..")
     return resultado
 
-def mostrar_puntos_vidas( vidas, puntos):
+def mostrar_puntos_vidas( vidas:int, puntos:int):
+    """muestra las vidas y puntos obtenidos
+
+    Args:
+        vidas (_type_): vidas que mostrar
+        puntos (_type_): puntos que mostrar
+    """
     print(f"Puntos obtenidos: {puntos}")
     print(f"Vidas: {vidas}")
+    
+def mostrar_categoria(matriz_tablero:list, diccionario:dict):
+    """muestra un categoria y valor de un diccionario aleatoriamente
+
+    Args:
+        matriz_tablero (list):matriz en la cual buscar si conisiden los valores del diccionario
+        diccionario (dict): diccionario en el cual comparar con la matriz
+
+    Returns:
+        _type_: retorna un string con la categoria y valor del diccionario 
+    """
+    for categoria in diccionario:
+        valores = diccionario[categoria]
+        
+        indice = random.randint(0,len(valores)-1)
+        valor_elegido = valores[indice]
+        
+        encontro = False
+        for i in range(len(matriz_tablero)):
+            for j in range(len(matriz_tablero[i])):
+                if matriz_tablero[i][j] == valor_elegido:
+                    encontro = True
+                    break
+            if encontro:
+                break
+        if encontro:
+            mensaje = f"Categoria {categoria}, opcion: {valor_elegido}"
+            return mensaje
+
